@@ -1,0 +1,76 @@
+﻿<Page x:Class="SchoolPr.Pages.PageServices"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolPr.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="Список услуг">
+
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource="/Resources/picture.png"></BitmapImage>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*">
+            </RowDefinition>
+            <RowDefinition Height="4*">
+            </RowDefinition>
+            <RowDefinition Height="1*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Button Name="AdminWindows" Visibility="Visible" Loaded="AdminWindows_Loaded" Click="AdminWindows_Click">Режим администратора
+                <Button.ToolTip>
+                    <ToolTip>
+                        Нажмите для активации режима администратора
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Loaded="buttonEditServices_Loaded" Click="ExitAdminWindows_Click" Visibility="Collapsed" Name="ExitAdminWindows">Выход из режима администратора
+                <Button.ToolTip>
+                    <ToolTip>
+                        Нажмите для выхода из режима администратора
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+
+        <ListView Name="ListServices" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Center"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="5" BorderThickness="1" BorderBrush="Black">
+                        <Grid>
+                            <StackPanel Orientation="Vertical" Width="1200" Height="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Width="100" Height="100"></Image>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding Title}"></TextBlock>
+                                        <TextBlock Text="{Binding C}"></TextBlock>
+                                        <TextBlock Text="{Binding D}"></TextBlock>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Visibility="Collapsed" Name="buttonEditServices" Loaded="buttonEditServices_Loaded">Редактировать</Button>
+                                            <Button Visibility="Collapsed" Name="buttonDeleteServices" Loaded="buttonEditServices_Loaded">Удалить</Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Row="2">
+
+        </StackPanel>
+    </Grid>
+</Page>
