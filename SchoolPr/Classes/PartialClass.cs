@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SchoolPr
 {
     public partial class Service
     {
-        int Cc =0;
+        double Cc =0;
         public string C
         {
             get
@@ -32,13 +33,30 @@ namespace SchoolPr
             {
                 if(Discount != null)
                 {
-                    return "* скидка " + Discount * 100 + "%";
+                    return "* скидка " + Discount.Value * 100 + "%";
                 }
                 else
                 {
-                    return null;
+                    return "";
                 }
                
+            }
+        }
+
+        public SolidColorBrush ServiceColor 
+        {
+            get
+            {
+                if (Discount > 0)
+                {
+                    return Brushes.LightGreen;
+                }
+                else
+                {
+
+                    return Brushes.White;
+                }
+
             }
         }
 

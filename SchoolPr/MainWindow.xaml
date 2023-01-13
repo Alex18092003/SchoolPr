@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPr"
         mc:Ignorable="d"
-        Title="Школа языков Леарн" Height="800" Width="1200" Icon="\Resources\school_logo.ico">
+        Title="Школа языков" Height="800" Width="1200" Icon="\Resources\school_logo.ico">
     <Grid>
         <Frame Name="FrameMain" NavigationUIVisibility="Hidden">
         </Frame>

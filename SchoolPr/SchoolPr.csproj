@@ -105,6 +105,9 @@
     <Compile Include="Tag.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WindowAddAndEditing.xaml.cs">
+      <DependentUpon>WindowAddAndEditing.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\WindowAdmin.xaml.cs">
       <DependentUpon>WindowAdmin.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\PageServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowAddAndEditing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +185,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\school_logo.png" />
     <Resource Include="Resources\picture.png" />
     <Resource Include="Images\Подготовка к экзамену SAT.png" />
     <Resource Include="Images\Подготовка к экзамену TOEFL.jpg" />

@@ -23,20 +23,67 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <Button Name="AdminWindows" Visibility="Visible" Loaded="AdminWindows_Loaded" Click="AdminWindows_Click">Режим администратора
-                <Button.ToolTip>
-                    <ToolTip>
-                        Нажмите для активации режима администратора
-                    </ToolTip>
-                </Button.ToolTip>
-            </Button>
-            <Button Loaded="buttonEditServices_Loaded" Click="ExitAdminWindows_Click" Visibility="Collapsed" Name="ExitAdminWindows">Выход из режима администратора
-                <Button.ToolTip>
-                    <ToolTip>
-                        Нажмите для выхода из режима администратора
-                    </ToolTip>
-                </Button.ToolTip>
-            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="AdminWindows" Visibility="Visible" Loaded="AdminWindows_Loaded" Click="AdminWindows_Click">Режим администратора
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Нажмите для активации режима администратора
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button Loaded="buttonEditServices_Loaded" Click="ExitAdminWindows_Click" Visibility="Collapsed" Name="ExitAdminWindows">Выход из режима администратора
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Нажмите для выхода из режима администратора
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Name="ComboBoxFilterDiscount" SelectionChanged="ComboBoxFilterDiscount_SelectionChanged">
+                    <ComboBox.ToolTip>
+                        <ToolTip>
+                            Выберите параметр для фильтрации по размеру скидки
+                        </ToolTip>
+                    </ComboBox.ToolTip>
+                    <ComboBoxItem>
+                        Все
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                       от 0 до 5%
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                       от 5% до 15%
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        от 15% до 30%
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        от 30% до 70%
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                       от 70% до 100%
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBlock>Поиск по названию:
+                </TextBlock>
+                <TextBox TextChanged="TextBoxTitle_TextChanged" Name="TextBoxTitle" Width="100">
+                    <TextBox.ToolTip>
+                        <ToolTip>
+                            Введите название услуги для поиска
+                        </ToolTip>
+                    </TextBox.ToolTip>
+                </TextBox>
+                <TextBlock>Поиск по описанию:
+                </TextBlock>
+                <TextBox TextChanged="TextBoxDescription_TextChanged" Name="TextBoxDescription" Width="100">
+                    <TextBox.ToolTip>
+                        <ToolTip>
+                            Введите описание для поиска
+                        </ToolTip>
+                    </TextBox.ToolTip>
+                </TextBox>
+            </StackPanel>
         </StackPanel>
 
         <ListView Name="ListServices" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -48,16 +95,17 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Padding="5" BorderThickness="1" BorderBrush="Black">
-                        <Grid>
+                        <Grid Background="{Binding ServiceColor}">
                             <StackPanel Orientation="Vertical" Width="1200" Height="100">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Width="100" Height="100"></Image>
+                                    <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Text="{Binding Title}"></TextBlock>
                                         <TextBlock Text="{Binding C}"></TextBlock>
                                         <TextBlock Text="{Binding D}"></TextBlock>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Visibility="Collapsed" Name="buttonEditServices" Loaded="buttonEditServices_Loaded">Редактировать</Button>
+                                            <Button Visibility="Collapsed" Name="buttonEditServices" Click="buttonEditServices_Click"
+                                                    Loaded="buttonEditServices_Loaded">Редактировать</Button>
                                             <Button Visibility="Collapsed" Name="buttonDeleteServices" Loaded="buttonEditServices_Loaded">Удалить</Button>
                                         </StackPanel>
                                     </StackPanel>
@@ -70,7 +118,16 @@
         </ListView>
 
         <StackPanel Grid.Row="2">
-
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="TextCount"></TextBlock>
+                <TextBlock Name="TextCountDB"></TextBlock>
+            </StackPanel>
+            <Button Click="ButoonAddandEditing_Click" Loaded="buttonEditServices_Loaded" Visibility="Collapsed" Name="ButoonAddandEditing">Добавить запись
+                <Button.ToolTip>
+                    <ToolTip>
+                       Нажмите для добаления новой услуги
+                    </ToolTip>
+                </Button.ToolTip></Button>
         </StackPanel>
     </Grid>
 </Page>

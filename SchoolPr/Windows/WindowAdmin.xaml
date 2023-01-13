@@ -8,7 +8,7 @@
         Title="Активация режима администратора" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBlock>Ввежите текст для активации режима администратора</TextBlock>
+            <TextBlock>Введите текст для активации режима администратора</TextBlock>
             <PasswordBox Name="PasswordBoxKod">
                 <PasswordBox.ToolTip>
                     <ToolTip>Введите код администратора</ToolTip>

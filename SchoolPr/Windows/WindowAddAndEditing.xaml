@@ -1,0 +1,27 @@
+﻿<Window x:Class="SchoolPr.Windows.WindowAddAndEditing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolPr.Windows"
+        mc:Ignorable="d"
+        Title="Добавление услуги" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="TextId"></TextBlock>
+                <TextBox Width="100" Name="TextBoxId" Visibility="Collapsed"></TextBox>
+                <TextBlock>Название*:</TextBlock>
+                <TextBox Width="100" Name="TextBoxTitle"></TextBox>
+                <TextBlock>Цена*:</TextBlock>
+                <TextBox Width="100" Name="TextBoxCost"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Время*:</TextBlock>
+                <TextBlock>Описание:</TextBlock>
+                <TextBlock>Скидка:</TextBlock>
+                <TextBox Width="100" Name="TextBoxDiscount"></TextBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
