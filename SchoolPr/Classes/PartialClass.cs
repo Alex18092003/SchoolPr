@@ -16,12 +16,31 @@ namespace SchoolPr
             {
                 if (Discount != null)
                 {
-                    Cc = (int)Cost - (int)Cost/1000  * (int)Discount;
-                    return Cost + " "+ Cc + " рублей за 30 минут";
+                    //Cc =  ((int)Cost/100)  * (100-(int)Discount*100);
+                    double b = (Convert.ToDouble(Cost) / 100) * (100 - (Discount.Value * 100));
+                    int time = DurationInSeconds / 60;
+                    return b + " рублей за " +time+ " минут";
                 }
                 else
                 {
-                    return Cost + " рублей за 30 минут";
+                    int time = DurationInSeconds / 60;
+                    return (int)Cost + " рублей за " + time + " минут";
+                }
+
+            }
+        }
+
+        public string P
+        {
+            get
+            {
+                if (Discount != null)
+                {
+                    return (int)Cost + " ";
+                }
+                else
+                {
+                    return "";
                 }
 
             }

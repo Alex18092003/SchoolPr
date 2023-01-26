@@ -21,6 +21,7 @@ namespace SchoolPr
     ///  string kode;
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();

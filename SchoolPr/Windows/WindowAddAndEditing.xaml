@@ -9,19 +9,36 @@
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Name="TextId"></TextBlock>
-                <TextBox Width="100" Name="TextBoxId" Visibility="Collapsed"></TextBox>
-                <TextBlock>Название*:</TextBlock>
-                <TextBox Width="100" Name="TextBoxTitle"></TextBox>
-                <TextBlock>Цена*:</TextBlock>
-                <TextBox Width="100" Name="TextBoxCost"></TextBox>
+            <StackPanel Orientation="Vertical">
+                <Image Width="250" Height="250" Name="ImageService"></Image>
+            <Button Click="ButtonAddImage_Click" Name="ButtonAddImage">Добавить изображение</Button>
+                    <Button Visibility="Collapsed" Name="ButtonAddImages">Добавить несколько изображений</Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Время*:</TextBlock>
-                <TextBlock>Описание:</TextBlock>
-                <TextBlock>Скидка:</TextBlock>
-                <TextBox Width="100" Name="TextBoxDiscount"></TextBox>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="TextId"></TextBlock>
+                        <TextBox Width="100" Name="TextBoxId" Visibility="Collapsed"></TextBox>
+                        <TextBlock>Название*:</TextBlock>
+                        <TextBox TextChanged="TextBoxTitle_TextChanged" PreviewTextInput="TextBoxTitle_PreviewTextInput" Width="100" Name="TextBoxTitle"></TextBox>
+                        <TextBlock>Цена*:</TextBlock>
+                        <TextBox PreviewTextInput="TextBoxCost_PreviewTextInput" Width="100" Name="TextBoxCost"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Время* (мин):</TextBlock>
+                        <TextBox PreviewTextInput="TextBoxTime_PreviewTextInput" Width="100" Name="TextBoxTime"></TextBox>
+                        <TextBlock>Скидка (%):</TextBlock>
+                        <TextBox PreviewTextInput="TextBoxDiscount_PreviewTextInput" Width="100" Name="TextBoxDiscount"></TextBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Описание:</TextBlock>
+                        <TextBox TextChanged="TextBoxDiscription_TextChanged" Width="200" Height="150" TextWrapping="Wrap" AcceptsReturn="True" Name="TextBoxDiscription"></TextBox>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
+        <StackPanel>
+            <Button Click="ButtonSave_Click" Name="ButtonSave">Сохранить</Button> 
+        </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

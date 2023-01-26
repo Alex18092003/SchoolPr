@@ -9,7 +9,7 @@
       Title="Список услуг">
 
     <Page.Resources>
-        <BitmapImage x:Key="defaultImage" UriSource="/Resources/picture.png"></BitmapImage>
+        <BitmapImage x:Key="defaultImage" UriSource="../Resources/picture.png"/>
     </Page.Resources>
 
     <Grid>
@@ -101,12 +101,16 @@
                                     <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Text="{Binding Title}"></TextBlock>
-                                        <TextBlock Text="{Binding C}"></TextBlock>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding P}" TextDecorations="Strikethrough"></TextBlock>
+                                            <TextBlock Text="{Binding C}"></TextBlock>
+                                        </StackPanel>
+                                        
                                         <TextBlock Text="{Binding D}"></TextBlock>
                                         <StackPanel Orientation="Horizontal">
                                             <Button Visibility="Collapsed" Name="buttonEditServices" Click="buttonEditServices_Click"
                                                     Loaded="buttonEditServices_Loaded">Редактировать</Button>
-                                            <Button Visibility="Collapsed" Name="buttonDeleteServices" Loaded="buttonEditServices_Loaded">Удалить</Button>
+                                            <Button Uid="{Binding ID}" Visibility="Collapsed" Name="buttonDeleteServices" Click="buttonDeleteServices_Click" Loaded="buttonEditServices_Loaded">Удалить</Button>
                                         </StackPanel>
                                     </StackPanel>
                                 </StackPanel>

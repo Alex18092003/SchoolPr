@@ -26,7 +26,6 @@ namespace SchoolPr.Pages
         public PageServices()
         {
             InitializeComponent();
-
             ListServices.ItemsSource = Classes.BaseClass.DB.Service.ToList();
             ComboBoxFilterDiscount.SelectedIndex = 0;
             TextCountDB.Text ="Количество записей в бд:" + Classes.BaseClass.DB.Service.ToList().Count;
@@ -49,6 +48,7 @@ namespace SchoolPr.Pages
             }
             else
             {
+
                 button.Visibility = Visibility.Collapsed;
             }
         }
@@ -71,7 +71,8 @@ namespace SchoolPr.Pages
             AdminWindows.Visibility = Visibility.Visible;
             ExitAdminWindows.Visibility = Visibility.Collapsed;
             ButoonAddandEditing.Visibility = Visibility.Collapsed;
-            kode = "1111";
+            kode = "00";
+            Classes.Framec.MainFrame.Navigate(new PageServices());
         }
 
         void Filter()
@@ -118,14 +119,11 @@ namespace SchoolPr.Pages
                         if(ss.Description != null)
                         {
                             listFilter = listFilter.Where(x => x.Description.ToLower().Contains(TextBoxDescription.Text.ToLower())).ToList();
-                        }
-                        
+                        }  
                     }
-                   
                 }
                 else
                 {
-                   
                     MessageBox.Show("нет записей");
                 }
             }
@@ -161,14 +159,45 @@ namespace SchoolPr.Pages
 
         private void ButoonAddandEditing_Click(object sender, RoutedEventArgs e)
         {
-            Windows.WindowAddAndEditing windowPerson = new Windows.WindowAddAndEditing();
-            windowPerson.ShowDialog();
-            Classes.Framec.MainFrame.Navigate(new PageServices());
+            try
+            {
+                Windows.WindowAddAndEditing windowAdd = new Windows.WindowAddAndEditing();
+                windowAdd.ShowDialog();
+                Classes.Framec.MainFrame.Navigate(new PageServices());
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так", "Ошибка");
+            }
         }
 
         private void buttonEditServices_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void buttonDeleteServices_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                int id = Convert.ToInt32(btn.Uid);
+                if(Classes.BaseClass.DB.ClientService.FirstOrDefault(x => x.ServiceID == id) == null)
+                {
+                    Classes.BaseClass.DB.Service.Remove(Classes.BaseClass.DB.Service.FirstOrDefault(x => x.ID == id));
+                    Classes.BaseClass.DB.SaveChanges();
+                    MessageBox.Show("Успешное удаление услуги", "Удаление");
+                    Classes.Framec.MainFrame.Navigate(new PageServices());
+                }
+                else
+                {
+                    MessageBox.Show("Невозможно удалить", "Удаление");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так с  удалением услуги");
+            }
         }
     }
 }
