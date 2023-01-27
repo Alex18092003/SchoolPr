@@ -29,7 +29,7 @@ namespace SchoolPr.Pages
             ListServices.ItemsSource = Classes.BaseClass.DB.Service.ToList();
             ComboBoxFilterDiscount.SelectedIndex = 0;
             TextCountDB.Text ="Количество записей в бд:" + Classes.BaseClass.DB.Service.ToList().Count;
-            TextCount.Text = "Количество выведенных записей: " + Classes.BaseClass.DB.Service.ToList().Count;
+            TextCount.Text = "Количество выведенных записей: " + Classes.BaseClass.DB.Service.ToList().Count + " ";
         }
 
         private void AdminWindows_Click(object sender, RoutedEventArgs e)
@@ -139,7 +139,7 @@ namespace SchoolPr.Pages
             {
                 MessageBox.Show("нет записей");
             }
-            TextCount.Text = "Количество выведенных записей: " + listFilter.Count;
+            TextCount.Text = "Количество выведенных записей: " + listFilter.Count +" ";
         }
 
         private void ComboBoxFilterDiscount_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -174,6 +174,20 @@ namespace SchoolPr.Pages
         private void buttonEditServices_Click(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+                Button btn = (Button)sender;
+                int id = Convert.ToInt32(btn.Uid);
+                Service service = Classes.BaseClass.DB.Service.FirstOrDefault(x => x.ID == id);
+
+                Windows.WindowAddAndEditing windowAdd = new Windows.WindowAddAndEditing(service);
+                windowAdd.ShowDialog();
+                Classes.Framec.MainFrame.Navigate(new PageServices());
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так", "Ошибка");
+            }
         }
 
         private void buttonDeleteServices_Click(object sender, RoutedEventArgs e)
@@ -182,8 +196,15 @@ namespace SchoolPr.Pages
             {
                 Button btn = (Button)sender;
                 int id = Convert.ToInt32(btn.Uid);
-                if(Classes.BaseClass.DB.ClientService.FirstOrDefault(x => x.ServiceID == id) == null)
+                if (Classes.BaseClass.DB.ClientService.FirstOrDefault(x => x.ServiceID == id) == null)
                 {
+                    foreach (ServicePhoto servicePhoto in Classes.BaseClass.DB.ServicePhoto.ToList())
+                    {
+                        if (servicePhoto.ServiceID == id)
+                        {
+                            Classes.BaseClass.DB.ServicePhoto.Remove(servicePhoto);
+                        }
+                    }
                     Classes.BaseClass.DB.Service.Remove(Classes.BaseClass.DB.Service.FirstOrDefault(x => x.ID == id));
                     Classes.BaseClass.DB.SaveChanges();
                     MessageBox.Show("Успешное удаление услуги", "Удаление");
@@ -197,6 +218,38 @@ namespace SchoolPr.Pages
             catch
             {
                 MessageBox.Show("Что-то пошло не так с  удалением услуги");
+            }
+        }
+
+        private void buttonEntry_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                int id = Convert.ToInt32(btn.Uid);
+                Service service = Classes.BaseClass.DB.Service.FirstOrDefault(x => x.ID == id);
+
+                Windows.WindowEntry windowAdd = new Windows.WindowEntry(service);
+                windowAdd.ShowDialog();
+                Classes.Framec.MainFrame.Navigate(new PageServices());
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так", "ll");
+            }
+        }
+
+        private void buttonEntry_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (kode == "0000")
+            {
+                button.Visibility = Visibility.Visible;
+            }
+            else
+            {
+
+                button.Visibility = Visibility.Collapsed;
             }
         }
     }

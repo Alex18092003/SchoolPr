@@ -1,0 +1,38 @@
+﻿<Window x:Class="SchoolPr.Windows.WindowEntry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolPr.Windows"
+        mc:Ignorable="d"
+        Title="WindowEntry" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Наименование</TextBlock>
+                <TextBlock Name="TextBlockTitle"></TextBlock>
+                <TextBlock>Длительность (мин)</TextBlock>
+                <TextBlock Name="TextBlockTime"></TextBlock>
+            </StackPanel>
+            <TextBlock>Выберите клиента</TextBlock>
+            <ComboBox Name="ComboBocClient"></ComboBox>
+            <TextBlock>Выберите дату</TextBlock>
+            <DatePicker Name="DataPickerData"></DatePicker>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Введите время начала занятия</TextBlock>
+                <TextBlock>Часы:</TextBlock>
+                <TextBox SelectionChanged="TextBoxTimeStart_SelectionChanged" PreviewTextInput="TextBoxTimeStart_PreviewTextInput" TextChanged="TextBoxTimeStart_TextChanged" Name="TextBoxTimeStart"></TextBox>
+                <TextBlock>Минуты:</TextBlock>
+                <TextBox SelectionChanged="TextBoxTimeStart2_SelectionChanged" PreviewTextInput="TextBoxTimeStart2_PreviewTextInput" TextChanged="TextBoxTimeStart2_TextChanged" Name="TextBoxTimeStart2"></TextBox>
+                
+                <TextBlock>Время окончания услуги</TextBlock>
+                <TextBox IsReadOnly="True" Name="TextBlockTimeEnd"></TextBox>
+               
+            </StackPanel>
+            <Button Name="ButtonAdd" Click="ButtonAdd_Click">Добавить</Button>
+            <Button Name="ButtonBack" Click="ButtonBack_Click">Назад</Button>
+
+
+        </StackPanel>
+    </Grid>
+</Window>

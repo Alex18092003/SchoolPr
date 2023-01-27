@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\BaseClass.cs" />
+    <Compile Include="Classes\ClassFIOClient.cs" />
     <Compile Include="Classes\PartialClass.cs" />
     <Compile Include="Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -111,6 +112,9 @@
     <Compile Include="Windows\WindowAdmin.xaml.cs">
       <DependentUpon>WindowAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WindowEntry.xaml.cs">
+      <DependentUpon>WindowEntry.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\WindowAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,8 +193,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\school_logo.png" />
-    <Resource Include="Resources\picture.png" />
+    <Resource Include="resources\school_logo.png" />
+    <Resource Include="resources\picture.png" />
     <Resource Include="Images\Подготовка к экзамену SAT.png" />
     <Resource Include="Images\Подготовка к экзамену TOEFL.jpg" />
     <Resource Include="Images\Португальский язык.jpg" />
@@ -216,7 +224,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\school_logo.ico" />
+    <Resource Include="resources\school_logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
