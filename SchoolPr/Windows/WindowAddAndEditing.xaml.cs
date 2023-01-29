@@ -38,6 +38,7 @@ namespace SchoolPr.Windows
         {
             InitializeComponent();
             flag = true;
+            Title = "Редактирование услуги";
             this.s = service;
             TextId.Visibility = Visibility.Visible;
             TextBoxId.Visibility = Visibility.Visible;
@@ -63,32 +64,32 @@ namespace SchoolPr.Windows
                 {
                     if (TextBoxTitle.Text == "" || TextBoxTime.Text == "" || TextBoxCost.Text == "")
                     {
-                        MessageBox.Show("Не все обязательные поля заполнены", "Сохранение данных");
+                        MessageBox.Show("Не все обязательные поля заполнены", "Системное сообщение");
                     }
                     else
                     {
                         List<Service> services = Classes.BaseClass.DB.Service.Where(x => x.Title == TextBoxTitle.Text).ToList();
                         if (services.Count > 0)
                         {
-                            MessageBox.Show("Данная услуга уже существует", "Сохранение данных");
+                            MessageBox.Show("Данная услуга уже существует", "Системное сообщение");
                         }
                         else
                         {
                             if (Convert.ToDouble(TextBoxTime.Text) < 0 || Convert.ToDouble(TextBoxTime.Text) > 240)
                             {
-                                MessageBox.Show("Длительность услуги должна быть не более 240 минут и не отрицательная", "Сохранение данных");
+                                MessageBox.Show("Длительность услуги должна быть не более 240 минут и не отрицательная", "Системное сообщение");
                             }
                             else
                             {
                                 if (Convert.ToInt32(TextBoxDiscount.Text) < 0 || Convert.ToInt32(TextBoxDiscount.Text) > 100)
                                 {
-                                    MessageBox.Show("Скидка должна быть в диапазоне от 1 до 99%", "Сохранение данных");
+                                    MessageBox.Show("Скидка должна быть в диапазоне от 1% до 99%", "Системное сообщение");
                                 }
                                 else
                                 {
                                     if (Convert.ToInt32(TextBoxCost.Text) < 0)
                                     {
-                                        MessageBox.Show("Стосимость не может быть отрицательной", "Сохранение данных");
+                                        MessageBox.Show("Стосимость не может быть отрицательной", "Системное сообщение");
                                     }
                                     else
                                     {
@@ -120,7 +121,7 @@ namespace SchoolPr.Windows
                                         //Classes.BaseClass.DB.ServicePhoto.Add(servph);
 
                                         Classes.BaseClass.DB.SaveChanges();
-                                        MessageBox.Show("Данные добавлены", "Добавление данных");
+                                        MessageBox.Show("Данные добавлены успешно", "Информация");
                                         Close();
                                         //Classes.Framec.MainFrame.Navigate(new Pages.PageServices());
                                     }
@@ -135,25 +136,25 @@ namespace SchoolPr.Windows
                 {
                     if (TextBoxTitle.Text == "" || TextBoxTime.Text == "" || TextBoxCost.Text == "")
                     {
-                        MessageBox.Show("Не все обязательные поля заполнены", "Сохранение данных");
+                        MessageBox.Show("Не все обязательные поля заполнены", "Системное сообщение");
                     }
                     else
                     {
                         if (Convert.ToDouble(TextBoxTime.Text) < 0 || Convert.ToDouble(TextBoxTime.Text) > 240)
                         {
-                            MessageBox.Show("Длительность услуги должна быть не более 240 минут и не отрицательная", "Сохранение данных");
+                            MessageBox.Show("Длительность услуги должна быть не более 240 минут и не отрицательная", "Системное сообщение");
                         }
                         else
                         {
                             if (Convert.ToInt32(TextBoxDiscount.Text) < 0 || Convert.ToInt32(TextBoxDiscount.Text) > 100)
                             {
-                                MessageBox.Show("Скидка должна быть в диапазоне от 1 до 99%", "Сохранение данных");
+                                MessageBox.Show("Скидка должна быть в диапазоне от 1% до 99%", "Системное сообщение");
                             }
                             else
                             {
                                 if (Convert.ToInt32(TextBoxCost.Text) < 0)
                                 {
-                                    MessageBox.Show("Стосимость не может быть отрицательной", "Сохранение данных");
+                                    MessageBox.Show("Стосимость не может быть отрицательной", "Системное сообщение");
                                 }
                                 else
                                 {
@@ -178,7 +179,7 @@ namespace SchoolPr.Windows
                                     }
                                     s.MainImagePath = path;
                                     Classes.BaseClass.DB.SaveChanges();
-                                    MessageBox.Show("Изменения сохранены", "Изменение данных");
+                                    MessageBox.Show("Изменения сохранены успешно", "Информация");
                                     Close();
                                 }
                             }
@@ -203,7 +204,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с запретом ввода чисел");
+                MessageBox.Show("Что-то пошло не так с запретом ввода чисел", "Ошибка");
             }
         }
 
@@ -217,7 +218,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с запретом ввода символов");
+                MessageBox.Show("Что-то пошло не так с запретом ввода символов", "Ошибка");
             }
         }
         //запрет ввода символов
@@ -232,7 +233,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с запретом ввода символов");
+                MessageBox.Show("Что-то пошло не так с запретом ввода символов", "Ошибка");
             }
 
         }
@@ -248,7 +249,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с запретом ввода символов");
+                MessageBox.Show("Что-то пошло не так с запретом ввода символов", "Ошибка");
             }
         }
 
@@ -276,7 +277,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так", "Добавление фото");
+                MessageBox.Show("Что-то пошло не так с добавлением фото", "Ошибка");
             }
         }
 
@@ -294,7 +295,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с первой заглавной буквой");
+                MessageBox.Show("Что-то пошло не так с первой заглавной буквой", "Ошибка");
             }
         }
         //Ввод заглавной буквы
@@ -310,7 +311,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с первой заглавной буквой");
+                MessageBox.Show("Что-то пошло не так с первой заглавной буквой", "Ошибка");
             }
         }
       

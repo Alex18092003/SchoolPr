@@ -71,13 +71,13 @@ namespace SchoolPr.Windows
                 int minut = Convert.ToInt32(minu);
                 if (hours < 0 || hours > 23)
                 {
-                    MessageBox.Show("Введите часы корректно", "Ошибка");
+                    MessageBox.Show("Часы введены некорректно", "Ошибка");
                 }
                 else
                 {
                     if (minut < 0 || minut > 60)
                     {
-                        MessageBox.Show("Введите минуты корректно", "Ошибка");
+                        MessageBox.Show("Минуты введены некорректно", "Ошибка");
                     }
                     else
                     {
@@ -137,7 +137,7 @@ namespace SchoolPr.Windows
                             Classes.BaseClass.DB.ClientService.Add(c);
                             Classes.BaseClass.DB.SaveChanges();
 
-                            MessageBox.Show("Клиент записан на занятие", "Запись за занятие");
+                            MessageBox.Show("Клиент записан на занятие успешно", "Информация");
                             Close();
                         }
 
@@ -162,7 +162,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с запретом ввода символов");
+                MessageBox.Show("Что-то пошло не так с запретом ввода символов", "Ошибка");
             }
         }
         //запрет ввода символов
@@ -177,7 +177,7 @@ namespace SchoolPr.Windows
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с запретом ввода символов");
+                MessageBox.Show("Что-то пошло не так с запретом ввода символов", "Ошибка");
             }
         }
 

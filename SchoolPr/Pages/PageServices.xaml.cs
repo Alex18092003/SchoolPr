@@ -71,6 +71,7 @@ namespace SchoolPr.Pages
             AdminWindows.Visibility = Visibility.Visible;
             ExitAdminWindows.Visibility = Visibility.Collapsed;
             ButoonAddandEditing.Visibility = Visibility.Collapsed;
+            ButtonEntry.Visibility = Visibility.Collapsed;
             kode = "00";
             Classes.Framec.MainFrame.Navigate(new PageServices());
         }
@@ -124,7 +125,7 @@ namespace SchoolPr.Pages
                 }
                 else
                 {
-                    MessageBox.Show("нет записей");
+                    MessageBox.Show("Нет записей","Информация");
                 }
             }
 
@@ -137,7 +138,7 @@ namespace SchoolPr.Pages
             ListServices.ItemsSource = listFilter;
             if (listFilter.Count == 0)
             {
-                MessageBox.Show("нет записей");
+                MessageBox.Show("Нет записей", "Информация");
             }
             TextCount.Text = "Количество выведенных записей: " + listFilter.Count +" ";
         }
@@ -167,7 +168,7 @@ namespace SchoolPr.Pages
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так", "Ошибка");
+                MessageBox.Show("Что-то пошло не так с переходом на окно добавления", "Ошибка");
             }
         }
 
@@ -186,7 +187,7 @@ namespace SchoolPr.Pages
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так", "Ошибка");
+                MessageBox.Show("Что-то пошло не так с переходом на окно", "Ошибка");
             }
         }
 
@@ -196,28 +197,32 @@ namespace SchoolPr.Pages
             {
                 Button btn = (Button)sender;
                 int id = Convert.ToInt32(btn.Uid);
-                if (Classes.BaseClass.DB.ClientService.FirstOrDefault(x => x.ServiceID == id) == null)
+                if (MessageBox.Show("Вы действительно хотите удалить услугу?", "Системное сообщение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    foreach (ServicePhoto servicePhoto in Classes.BaseClass.DB.ServicePhoto.ToList())
+                    if (Classes.BaseClass.DB.ClientService.FirstOrDefault(x => x.ServiceID == id) == null)
                     {
-                        if (servicePhoto.ServiceID == id)
+                        foreach (ServicePhoto servicePhoto in Classes.BaseClass.DB.ServicePhoto.ToList())
                         {
-                            Classes.BaseClass.DB.ServicePhoto.Remove(servicePhoto);
+                            if (servicePhoto.ServiceID == id)
+                            {
+                                Classes.BaseClass.DB.ServicePhoto.Remove(servicePhoto);
+                            }
                         }
+                        Classes.BaseClass.DB.Service.Remove(Classes.BaseClass.DB.Service.FirstOrDefault(x => x.ID == id));
+                        Classes.BaseClass.DB.SaveChanges();
+                        MessageBox.Show("Успешное удаление услуги", "Информация");
+                        Classes.Framec.MainFrame.Navigate(new PageServices());
                     }
-                    Classes.BaseClass.DB.Service.Remove(Classes.BaseClass.DB.Service.FirstOrDefault(x => x.ID == id));
-                    Classes.BaseClass.DB.SaveChanges();
-                    MessageBox.Show("Успешное удаление услуги", "Удаление");
-                    Classes.Framec.MainFrame.Navigate(new PageServices());
+                    else
+                    {
+                        MessageBox.Show("Невозможно удалить данную услугу", "Информация");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Невозможно удалить", "Удаление");
-                }
+
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так с  удалением услуги");
+                MessageBox.Show("Что-то пошло не так с  удалением услуги", "Ошибка");
             }
         }
 
@@ -235,7 +240,7 @@ namespace SchoolPr.Pages
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так", "ll");
+                MessageBox.Show("Что-то пошло не так с переходом на окно записи на услугу", "Ошибка");
             }
         }
 
@@ -251,6 +256,19 @@ namespace SchoolPr.Pages
 
                 button.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void ButtonEntry_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Classes.Framec.MainFrame.Navigate(new PageEntry());
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так с переходом на страницу ближайших записей", "Ошибка");
+            }
+
         }
     }
 }

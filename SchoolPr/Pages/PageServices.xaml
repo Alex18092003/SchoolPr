@@ -96,7 +96,7 @@
                 <DataTemplate>
                     <Border Padding="5" BorderThickness="1" BorderBrush="Black">
                         <Grid Background="{Binding ServiceColor}">
-                            <StackPanel Orientation="Vertical" Width="1200" Height="100">
+                            <StackPanel Orientation="Vertical" Height="100" Width="1200">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
                                     <StackPanel Orientation="Vertical">
@@ -133,6 +133,14 @@
                        Нажмите для добаления новой услуги
                     </ToolTip>
                 </Button.ToolTip></Button>
+            <Button Name="ButtonEntry" Click="ButtonEntry_Click_1" Loaded="buttonEditServices_Loaded" Visibility="Collapsed">
+                Список ближайших записей
+                <Button.ToolTip>
+                    <ToolTip>
+                        Нажмите для перехода к списку ближайщих записей
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
