@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPr.Windows"
         mc:Ignorable="d"
-        Title="Добавление услуги" Height="450" Width="800">
+        Title="Добавление услуги" Height="450" Width="1000" Icon="\resources\school_logo.ico">
 
     <Window.Resources>
         <BitmapImage x:Key="defaultImage" UriSource="../resources/picture.png"/>
@@ -13,36 +13,39 @@
 
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical">
                     <Image Width="250" Height="250" Name="ImageService"></Image>
-            <Button Click="ButtonAddImage_Click" Name="ButtonAddImage">Выбрать изображение</Button>
+                    <Button Style="{StaticResource ResourceKey=btn1}" Click="ButtonAddImage_Click" Name="ButtonAddImage">Выбрать изображение</Button>
                     <Button Visibility="Collapsed" Name="ButtonAddImages">Добавить несколько изображений</Button>
             </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="TextId" Visibility="Collapsed">Индекс</TextBlock>
-                        <TextBox IsReadOnly="True" Width="100" Name="TextBoxId" Visibility="Collapsed"></TextBox>
-                        <TextBlock>Название*:</TextBlock>
-                        <TextBox TextChanged="TextBoxTitle_TextChanged" PreviewTextInput="TextBoxTitle_PreviewTextInput" Width="100" Name="TextBoxTitle"></TextBox>
-                        <TextBlock>Цена*:</TextBlock>
-                        <TextBox PreviewTextInput="TextBoxCost_PreviewTextInput" Width="100" Name="TextBoxCost"></TextBox>
+                        <TextBlock Margin="10,10,10,10" Style="{StaticResource ResourceKey=text}" Name="TextId" Visibility="Collapsed">Индекс</TextBlock>
+                        <TextBox  Style="{StaticResource ResourceKey=textbox1}" Height="35" IsReadOnly="True" Width="50" Name="TextBoxId" Visibility="Collapsed"></TextBox>
+
+                        <TextBlock Margin="10,10,10,10" Style="{StaticResource ResourceKey=text}">Цена*:</TextBlock>
+                        <TextBox  Style="{StaticResource ResourceKey=textbox1}" Width="200" Height="35" PreviewTextInput="TextBoxCost_PreviewTextInput" Name="TextBoxCost"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock>Время* (мин):</TextBlock>
-                        <TextBox PreviewTextInput="TextBoxTime_PreviewTextInput" Width="100" Name="TextBoxTime"></TextBox>
-                        <TextBlock>Скидка (%):</TextBlock>
-                        <TextBox PreviewTextInput="TextBoxDiscount_PreviewTextInput" Width="100" Name="TextBoxDiscount"></TextBox>
+                        <TextBlock Margin="10,10,10,10"  Style="{StaticResource ResourceKey=text}">Название*:</TextBlock>
+                        <TextBox  Style="{StaticResource ResourceKey=textbox1}" Width="565" Height="35" TextChanged="TextBoxTitle_TextChanged" PreviewTextInput="TextBoxTitle_PreviewTextInput" Name="TextBoxTitle"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock  Margin="10,10,10,10" Style="{StaticResource ResourceKey=text}">Время* (мин):</TextBlock>
+                        <TextBox  Style="{StaticResource ResourceKey=textbox1}" Width="200" Height="35" PreviewTextInput="TextBoxTime_PreviewTextInput"  Name="TextBoxTime"></TextBox>
+                        <TextBlock Margin="10,10,10,10"  Style="{StaticResource ResourceKey=text}">Скидка (%):</TextBlock>
+                        <TextBox  PreviewTextInput="TextBoxDiscount_PreviewTextInput" Style="{StaticResource ResourceKey=textbox1}" Width="200" Height="35" Name="TextBoxDiscount"></TextBox>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock>Описание:</TextBlock>
-                        <TextBox TextChanged="TextBoxDiscription_TextChanged" Width="200" Height="150" TextWrapping="Wrap" AcceptsReturn="True" Name="TextBoxDiscription"></TextBox>
+                        <TextBlock Margin="10,10,10,10"  Style="{StaticResource ResourceKey=text}">Описание:</TextBlock>
+                        <TextBox  Style="{StaticResource ResourceKey=textbox1}"  TextChanged="TextBoxDiscription_TextChanged" Width="500" Height="150" TextWrapping="Wrap" AcceptsReturn="True" Name="TextBoxDiscription"></TextBox>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         <StackPanel>
-            <Button Click="ButtonSave_Click" Name="ButtonSave">Сохранить</Button> 
+                <Button Style="{StaticResource ResourceKey=btn1}" Margin="0,40,0,0" Width="200" Click="ButtonSave_Click" Name="ButtonSave">Сохранить</Button> 
         </StackPanel>
         </StackPanel>
     </Grid>

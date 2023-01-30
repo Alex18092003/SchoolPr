@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPr.Windows"
         mc:Ignorable="d"
-        Title="Активация режима администратора" Height="450" Width="800">
+        Title="Активация режима администратора" Height="250" Width="600" Icon="\resources\school_logo.ico">
     <Grid>
-        <StackPanel>
-            <TextBlock>Введите текст для активации режима администратора</TextBlock>
-            <PasswordBox Name="PasswordBoxKod">
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Margin="10,10,10,10" Style="{StaticResource ResourceKey=text}">Введите текст для активации режима администратора</TextBlock>
+            <PasswordBox Width="400" Height="50" Style="{StaticResource ResourceKey=textb}" Name="PasswordBoxKod">
                 <PasswordBox.ToolTip>
                     <ToolTip>Введите код администратора</ToolTip>
                 </PasswordBox.ToolTip>
             </PasswordBox>
-            <Button Name="ButtonInput" Click="ButtonInput_Click">Ввод</Button>
+            <Button Style="{StaticResource ResourceKey=btn1}" Margin="0,30,0,0" Name="ButtonInput" Click="ButtonInput_Click">Ввод</Button>
         </StackPanel>
         
     </Grid>

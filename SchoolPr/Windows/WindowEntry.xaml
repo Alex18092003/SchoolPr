@@ -5,32 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPr.Windows"
         mc:Ignorable="d"
-        Title="Запись на услугу" Height="450" Width="800">
+        Title="Запись на услугу" Height="500" Width="800" Icon="\resources\school_logo.ico">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock>Наименование</TextBlock>
-                <TextBlock Name="TextBlockTitle"></TextBlock>
-                <TextBlock>Длительность (мин)</TextBlock>
-                <TextBlock Name="TextBlockTime"></TextBlock>
-            </StackPanel>
-            <TextBlock>Выберите клиента</TextBlock>
-            <ComboBox Name="ComboBocClient"></ComboBox>
-            <TextBlock>Выберите дату</TextBlock>
-            <DatePicker Name="DataPickerData"></DatePicker>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Введите время начала занятия</TextBlock>
-                <TextBlock>Часы:</TextBlock>
-                <TextBox SelectionChanged="TextBoxTimeStart_SelectionChanged" PreviewTextInput="TextBoxTimeStart_PreviewTextInput" TextChanged="TextBoxTimeStart_TextChanged" Name="TextBoxTimeStart"></TextBox>
-                <TextBlock>Минуты:</TextBlock>
-                <TextBox SelectionChanged="TextBoxTimeStart2_SelectionChanged" PreviewTextInput="TextBoxTimeStart2_PreviewTextInput" TextChanged="TextBoxTimeStart2_TextChanged" Name="TextBoxTimeStart2"></TextBox>
-                
-                <TextBlock>Время окончания услуги</TextBlock>
-                <TextBox IsReadOnly="True" Name="TextBlockTimeEnd"></TextBox>
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Наименование:</TextBlock>
+                <TextBlock Margin="10,10,0,0"  Style="{StaticResource ResourceKey=text}" Name="TextBlockTitle"></TextBlock>
                
             </StackPanel>
-            <Button Name="ButtonAdd" Click="ButtonAdd_Click">Добавить</Button>
-            <Button Name="ButtonBack" Click="ButtonBack_Click">Назад</Button>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Длительность (мин):</TextBlock>
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}" Name="TextBlockTime"></TextBlock>
+            </StackPanel>
+            <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Выберите клиента:</TextBlock>
+            <ComboBox  Margin="10,10,10,0" Style="{StaticResource ResourceKey=combo1}" Height="35" Name="ComboBocClient"></ComboBox>
+            <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Выберите дату:</TextBlock>
+            <DatePicker Margin="10,10,10,0" Style="{StaticResource ResourceKey=data}" Name="DataPickerData"></DatePicker>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Введите время начала занятия</TextBlock>
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Часы:</TextBlock>
+                <TextBox Style="{StaticResource ResourceKey=textbox1}" Margin="10,10,0,0" SelectionChanged="TextBoxTimeStart_SelectionChanged" PreviewTextInput="TextBoxTimeStart_PreviewTextInput" TextChanged="TextBoxTimeStart_TextChanged" Name="TextBoxTimeStart"></TextBox>
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Минуты:</TextBlock>
+                <TextBox Style="{StaticResource ResourceKey=textbox1}" Margin="10,10,0,0" SelectionChanged="TextBoxTimeStart2_SelectionChanged" PreviewTextInput="TextBoxTimeStart2_PreviewTextInput" TextChanged="TextBoxTimeStart2_TextChanged" Name="TextBoxTimeStart2"></TextBox>
+
+                
+               
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}">Время окончания услуги</TextBlock>
+                <TextBox Style="{StaticResource ResourceKey=textbox1}"  Margin="10,10,0,0" IsReadOnly="True" Name="TextBlockTimeEnd"></TextBox>
+            </StackPanel>
+            <Button Margin="0,10,0,0" Style="{StaticResource ResourceKey=btn1}" Name="ButtonAdd" Click="ButtonAdd_Click">Добавить</Button>
+            <Button Margin="0,10,0,0" Style="{StaticResource ResourceKey=btn1}" Name="ButtonBack" Click="ButtonBack_Click">Назад</Button>
 
 
         </StackPanel>

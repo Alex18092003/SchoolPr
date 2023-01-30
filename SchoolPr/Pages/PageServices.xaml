@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolPr.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1200"
+      d:DesignHeight="900" d:DesignWidth="1200"
       Title="Список услуг">
 
     <Page.Resources>
@@ -18,20 +18,21 @@
             </RowDefinition>
             <RowDefinition Height="4*">
             </RowDefinition>
-            <RowDefinition Height="1*">
+            <RowDefinition Height="2*">
             </RowDefinition>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Button Name="AdminWindows" Visibility="Visible" Loaded="AdminWindows_Loaded" Click="AdminWindows_Click">Режим администратора
+                <Image Source="../resources/school_logo.png" Margin="30,0,0,0" Height="50" Width="50"></Image>
+                <Button Style="{StaticResource ResourceKey=btn1}" Margin="70,30,0,20" Height="50" Width="250" Name="AdminWindows" Visibility="Visible" Loaded="AdminWindows_Loaded" Click="AdminWindows_Click">Режим администратора
                     <Button.ToolTip>
                         <ToolTip>
                             Нажмите для активации режима администратора
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button Loaded="buttonEditServices_Loaded" Click="ExitAdminWindows_Click" Visibility="Collapsed" Name="ExitAdminWindows">Выход из режима администратора
+                <Button Style="{StaticResource ResourceKey=btn1}" Margin="70,30,0,20" Height="50" Width="350" Loaded="buttonEditServices_Loaded" Click="ExitAdminWindows_Click" Visibility="Collapsed" Name="ExitAdminWindows">Выход из режима администратора
                     <Button.ToolTip>
                         <ToolTip>
                             Нажмите для выхода из режима администратора
@@ -39,8 +40,8 @@
                     </Button.ToolTip>
                 </Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox Name="ComboBoxFilterDiscount" SelectionChanged="ComboBoxFilterDiscount_SelectionChanged">
+            <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+                <ComboBox Style="{StaticResource ResourceKey=combo1}" Margin="30,0,0,0" Width="200" Height="35" Name="ComboBoxFilterDiscount" SelectionChanged="ComboBoxFilterDiscount_SelectionChanged">
                     <ComboBox.ToolTip>
                         <ToolTip>
                             Выберите параметр для фильтрации по размеру скидки
@@ -65,18 +66,18 @@
                        от 70% до 100%
                     </ComboBoxItem>
                 </ComboBox>
-                <TextBlock>Поиск по названию:
+                <TextBlock Margin="10,0,10,0" Style="{StaticResource ResourceKey=text}">Поиск по названию:
                 </TextBlock>
-                <TextBox TextChanged="TextBoxTitle_TextChanged" Name="TextBoxTitle" Width="100">
+                <TextBox Style="{StaticResource ResourceKey=textbox1}" Width="200" Height="35" TextChanged="TextBoxTitle_TextChanged" Name="TextBoxTitle">
                     <TextBox.ToolTip>
                         <ToolTip>
                             Введите название услуги для поиска
                         </ToolTip>
                     </TextBox.ToolTip>
                 </TextBox>
-                <TextBlock>Поиск по описанию:
+                <TextBlock Margin="10,0,10,0" Style="{StaticResource ResourceKey=text}">Поиск по описанию:
                 </TextBlock>
-                <TextBox TextChanged="TextBoxDescription_TextChanged" Name="TextBoxDescription" Width="100">
+                <TextBox Style="{StaticResource ResourceKey=textbox1}" Width="200" Height="35" TextChanged="TextBoxDescription_TextChanged" Name="TextBoxDescription" >
                     <TextBox.ToolTip>
                         <ToolTip>
                             Введите описание для поиска
@@ -94,24 +95,24 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Padding="5" BorderThickness="1" BorderBrush="Black">
+                    <Border Padding="5" BorderThickness="2" BorderBrush="#FF04A0FF">
                         <Grid Background="{Binding ServiceColor}">
                             <StackPanel Orientation="Vertical" Height="100" Width="1200">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding Title}"></TextBlock>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding P}" TextDecorations="Strikethrough"></TextBlock>
-                                            <TextBlock Text="{Binding C}"></TextBlock>
+                                        <TextBlock Margin="10,0,0,0" Style="{StaticResource ResourceKey=textlist}" Text="{Binding Title}"></TextBlock>
+                                        <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource ResourceKey=textlist}" Text="{Binding P}" TextDecorations="Strikethrough"></TextBlock>
+                                            <TextBlock Style="{StaticResource ResourceKey=textlist}" Text="{Binding C}"></TextBlock>
                                         </StackPanel>
-                                        
-                                        <TextBlock Text="{Binding D}"></TextBlock>
+
+                                        <TextBlock Margin="10,0,0,0" Style="{StaticResource ResourceKey=textlist}" Text="{Binding D}"></TextBlock>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Uid="{Binding ID}" Visibility="Collapsed" Name="buttonEditServices" Click="buttonEditServices_Click"
+                                            <Button Margin="10,0,0,0" Height="35" Width="150" Style="{StaticResource ResourceKey=btnlist}" Uid="{Binding ID}" Visibility="Collapsed" Name="buttonEditServices" Click="buttonEditServices_Click"
                                                     Loaded="buttonEditServices_Loaded">Редактировать</Button>
-                                            <Button Uid="{Binding ID}" Visibility="Collapsed" Name="buttonDeleteServices" Click="buttonDeleteServices_Click" Loaded="buttonEditServices_Loaded">Удалить</Button>
-                                            <Button Uid="{Binding ID}" Visibility="Collapsed" Name="buttonEntry" Click="buttonEntry_Click" Loaded="buttonEntry_Loaded">Записать на услугу</Button>
+                                            <Button Margin="10,0,0,0" Width="100" Style="{StaticResource ResourceKey=btnlist}" Uid="{Binding ID}" Visibility="Collapsed" Name="buttonDeleteServices" Click="buttonDeleteServices_Click" Loaded="buttonEditServices_Loaded">Удалить</Button>
+                                            <Button Margin="10,0,0,0" Width="170" Style="{StaticResource ResourceKey=btnlist}" Uid="{Binding ID}" Visibility="Collapsed" Name="buttonEntry" Click="buttonEntry_Click" Loaded="buttonEntry_Loaded">Записать на услугу</Button>
                                         </StackPanel>
                                     </StackPanel>
                                 </StackPanel>
@@ -124,16 +125,16 @@
 
         <StackPanel Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Name="TextCount"></TextBlock>
-                <TextBlock Name="TextCountDB"></TextBlock>
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}" Name="TextCount"></TextBlock>
+                <TextBlock Margin="10,10,0,0" Style="{StaticResource ResourceKey=text}" Name="TextCountDB"></TextBlock>
             </StackPanel>
-            <Button Click="ButoonAddandEditing_Click" Loaded="buttonEditServices_Loaded" Visibility="Collapsed" Name="ButoonAddandEditing">Добавить запись
+            <Button Margin="0,0,150,20" HorizontalAlignment="Right" Width="250" Height="50" Style="{StaticResource ResourceKey=btn1}" Click="ButoonAddandEditing_Click" Loaded="buttonEditServices_Loaded" Visibility="Collapsed" Name="ButoonAddandEditing">Добавить запись
                 <Button.ToolTip>
                     <ToolTip>
                        Нажмите для добаления новой услуги
                     </ToolTip>
                 </Button.ToolTip></Button>
-            <Button Name="ButtonEntry" Click="ButtonEntry_Click_1" Loaded="buttonEditServices_Loaded" Visibility="Collapsed">
+            <Button Margin="0,0,110,0" Width="350" HorizontalAlignment="Right" Height="50" Style="{StaticResource ResourceKey=btn1}" Name="ButtonEntry" Click="ButtonEntry_Click_1" Loaded="buttonEditServices_Loaded" Visibility="Collapsed">
                 Список ближайших записей
                 <Button.ToolTip>
                     <ToolTip>

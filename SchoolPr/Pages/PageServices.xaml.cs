@@ -28,7 +28,7 @@ namespace SchoolPr.Pages
             InitializeComponent();
             ListServices.ItemsSource = Classes.BaseClass.DB.Service.ToList();
             ComboBoxFilterDiscount.SelectedIndex = 0;
-            TextCountDB.Text ="Количество записей в бд:" + Classes.BaseClass.DB.Service.ToList().Count;
+            TextCountDB.Text ="Количество записей в бд: " + Classes.BaseClass.DB.Service.ToList().Count;
             TextCount.Text = "Количество выведенных записей: " + Classes.BaseClass.DB.Service.ToList().Count + " ";
         }
 

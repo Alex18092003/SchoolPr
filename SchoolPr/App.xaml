@@ -4,6 +4,68 @@
              xmlns:local="clr-namespace:SchoolPr"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Style x:Key="text" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+            <Setter Property="FontSize" Value="20"/>
+            
+        </Style>
+
+        <Style x:Key="textlist" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="btn1">
+            <Setter Property="Background" Value="#e7fabf"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="#FF04A0FF"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="btnlist">
+            <Setter Property="Background" Value="#e7fabf"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="#FF04A0FF"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox" x:Key="combo1">
+            <Setter Property="Background" Value="#e7fabf"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="#FF04A0FF"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+        </Style>
+        <Style TargetType="TextBox" x:Key="textbox1">
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="#FF04A0FF"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+        </Style>
+        
+        <Style TargetType="PasswordBox" x:Key="textb">
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="#FF04A0FF"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker" x:Key="data">
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="#FF04A0FF"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Foreground" Value="#FF04A0FF"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
