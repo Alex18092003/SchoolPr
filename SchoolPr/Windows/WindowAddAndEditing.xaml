@@ -15,7 +15,7 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical">
-                    <Image Width="250" Height="250" Name="ImageService"></Image>
+                    <Image  Width="250" Height="250" Name="ImageService"></Image>
                     <Button Style="{StaticResource ResourceKey=btn1}" Click="ButtonAddImage_Click" Name="ButtonAddImage">Выбрать изображение</Button>
                     <Button Visibility="Collapsed" Name="ButtonAddImages">Добавить несколько изображений</Button>
             </StackPanel>

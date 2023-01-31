@@ -30,7 +30,7 @@ namespace SchoolPr.Windows
         public WindowAddAndEditing()
         {
             InitializeComponent();
-            ImageService.Source = new BitmapImage(new Uri("....\\Resources\\picture.png", UriKind.Relative));
+            ImageService.Source = new BitmapImage(new Uri("..\\resources\\picture.png", UriKind.Relative));
 
         }
         //редактирование
