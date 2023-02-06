@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPr.Windows"
         mc:Ignorable="d"
+        MaxHeight="500" MaxWidth="800"
         Title="Запись на услугу" Height="500" Width="800" Icon="\resources\school_logo.ico">
     <Grid>
         <StackPanel>

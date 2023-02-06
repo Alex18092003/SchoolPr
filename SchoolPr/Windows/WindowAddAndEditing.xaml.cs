@@ -33,6 +33,7 @@ namespace SchoolPr.Windows
             ImageService.Source = new BitmapImage(new Uri("..\\resources\\picture.png", UriKind.Relative));
 
         }
+
         //редактирование
         public WindowAddAndEditing(Service service)
         {
@@ -56,11 +57,12 @@ namespace SchoolPr.Windows
 
         }
 
+        // сохранение данных -  нажатие на кнопку 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (flag == false)
+                if (flag == false) // добавление данных
                 {
                     if (TextBoxTitle.Text == "" || TextBoxTime.Text == "" || TextBoxCost.Text == "")
                     {
@@ -115,15 +117,12 @@ namespace SchoolPr.Windows
                                         }
                                         s.MainImagePath = path;
                                         Classes.BaseClass.DB.Service.Add(s);
-                                        //servph = new ServicePhoto();
-                                        //servph.ServiceID = s.ID;
-                                        //servph.PhotoPath = path;
-                                        //Classes.BaseClass.DB.ServicePhoto.Add(servph);
+                                      
 
                                         Classes.BaseClass.DB.SaveChanges();
                                         MessageBox.Show("Данные добавлены успешно", "Информация");
                                         Close();
-                                        //Classes.Framec.MainFrame.Navigate(new Pages.PageServices());
+                                      
                                     }
                                 }
 
@@ -132,7 +131,7 @@ namespace SchoolPr.Windows
                     }
 
                 }
-                else
+                else // редактировани данных
                 {
                     if (TextBoxTitle.Text == "" || TextBoxTime.Text == "" || TextBoxCost.Text == "")
                     {
@@ -253,6 +252,7 @@ namespace SchoolPr.Windows
             }
         }
 
+        // раборта с фото
         string path = null;
         ServicePhoto servph;
         private void ButtonAddImage_Click(object sender, RoutedEventArgs e)

@@ -76,6 +76,7 @@ namespace SchoolPr.Pages
             Classes.Framec.MainFrame.Navigate(new PageServices());
         }
 
+        // метод с фильтрацией
         void Filter()
         {
             List<Service> services = Classes.BaseClass.DB.Service.ToList();
@@ -191,6 +192,7 @@ namespace SchoolPr.Pages
             }
         }
 
+        //удаление услуги с подтверждением
         private void buttonDeleteServices_Click(object sender, RoutedEventArgs e)
         {
             try

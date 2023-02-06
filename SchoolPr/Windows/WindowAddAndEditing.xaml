@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPr.Windows"
         mc:Ignorable="d"
+        MaxHeight="450" MaxWidth="1000"
         Title="Добавление услуги" Height="450" Width="1000" Icon="\resources\school_logo.ico">
 
     <Window.Resources>
         <BitmapImage x:Key="defaultImage" UriSource="../resources/picture.png"/>
     </Window.Resources>
 
-    <Grid>
+    <Grid >
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical">

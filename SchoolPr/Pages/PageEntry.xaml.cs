@@ -24,6 +24,7 @@ namespace SchoolPr.Pages
         {
             InitializeComponent();
 
+            //сортировка данных по дате
             DateTime date2 = DateTime.Today;
             DateTime date = date2.AddDays(2);
             List<ClientService> cl = Classes.BaseClass.DB.ClientService.Where(x=>x.StartTime >= DateTime.Today && x.StartTime < date).ToList();

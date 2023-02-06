@@ -24,6 +24,7 @@ namespace SchoolPr.Windows
             InitializeComponent();
         }
 
+        // проверка на админа
         private void ButtonInput_Click(object sender, RoutedEventArgs e)
         {
             if(PasswordBoxKod.Password != "")

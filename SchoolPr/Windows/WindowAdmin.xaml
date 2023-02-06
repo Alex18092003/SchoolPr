@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolPr.Windows"
         mc:Ignorable="d"
+        MaxHeight="250" MaxWidth="600"
         Title="Активация режима администратора" Height="250" Width="600" Icon="\resources\school_logo.ico">
     <Grid>
         <StackPanel HorizontalAlignment="Center">
